@@ -1,14 +1,18 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.core.mail import send_mail
-from .models import TeamMember, Article, Notice
-from django.conf import settings
+from django.shortcuts import render
+from .models import Article, Notice, TeamMember
 
-# ------------------------
-# Static Pages
-# ------------------------
 def home(request):
-    return render(request, "home.html")
-
+    articles = Article.objects.all().order_by('-created_at')[:5]
+    notices = Notice.objects.filter(is_active=True).order_by('-published_at')[:5]
+    team_members = TeamMember.objects.all()
+    
+    context = {
+        "articles": articles,
+        "notices": notices,
+        "team_members": team_members,
+    }
+    
+    return render(request, "home.html", context)
 def about(request):
     return render(request, "about.html")
 
