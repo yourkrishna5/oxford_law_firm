@@ -7,6 +7,7 @@ class MainConfig(AppConfig):
     name = 'main'
 
     def ready(self):
+        # Connect the function to run after migrations
         post_migrate.connect(create_admin_user, sender=self)
 
 def create_admin_user(sender, **kwargs):
@@ -19,4 +20,4 @@ def create_admin_user(sender, **kwargs):
             )
             print("✅ Superuser 'oxfordform' created")
     except Exception as e:
-        print("⚠️ Skipped superuser creation:", e)
+        print("⚠️ Superuser creation skipped:", e)
