@@ -16,17 +16,17 @@
       </a>
 
       <!-- Simple nav -->
-      <nav>
-        <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'team' %}">Team</a></li>
-          <li><a href="{% url 'article_list' %}">Articles</a></li>
-          <li><a href="{% url 'notice_list' %}">Notices</a></li>
-          <!-- Contact page now only has mailto link, URL is safe -->
-          <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
-      </nav>
+  <nav>
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+    <li><a href="{% url 'team' %}">Team</a></li>
+    <li><a href="{% url 'article_list' %}">Articles</a></li>
+    <li><a href="{% url 'notice_list' %}">Notices</a></li>
+    <!-- Contact link now points directly to email -->
+    <li><a href="mailto:oxfordlawfirm5@gmail.com">Contact</a></li>
+  </ul>
+</nav>
     </div>
   </header>
 
