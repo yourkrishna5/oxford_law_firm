@@ -19,26 +19,8 @@ def home(request):
 def about(request):
     return render(request, "about.html")
 
-# Keep contact email logic, but remove form from front-end
-def contact_email(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        message = request.POST.get("message")
-        full_message = f"From: {name} <{email}>\n\nMessage:\n{message}"
-
-        send_mail(
-            subject=f"Contact Form Submission from {name}",
-            message=full_message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=["oxfordlawfirm5@gmail.com"],
-            fail_silently=False,
-        )
-    return redirect("home")  # Redirect to home instead of contact page
-
-def contact_success(request):
-    return render(request, "contact_success.html")
-
+def contact(request):
+    return render(request, "contact.html")
 def team_view(request):
     members = TeamMember.objects.all()
     return render(request, "team.html", {"members": members})
