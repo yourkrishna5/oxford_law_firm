@@ -4,17 +4,352 @@
 
 {% block content %}
   <section id="about">
-    <h1>About Oxford Law Firm</h1>
-    <p>Oxford Law Firm is dedicated to providing high-quality legal services. Our team combines experience and dedication to serve our clients.</p>
+    <div class="about-container">
+      <div class="about-header">
+        <h1>About Oxford Law Firm</h1>
+        <p class="about-intro">Oxford Law Firm is dedicated to providing high-quality legal services. Our team combines experience and dedication to serve our clients with excellence and unwavering commitment to justice.</p>
+      </div>
 
-    <h2>Our Mission</h2>
-    <p>To deliver client-centered legal solutions with integrity and professionalism.</p>
+      <div class="about-content">
+        <div class="mission-section">
+          <div class="content-card">
+            <h2>Our Mission</h2>
+            <p>To deliver client-centered legal solutions with integrity and professionalism. We strive to exceed expectations while maintaining the highest ethical standards in everything we do.</p>
+          </div>
+        </div>
 
-    <h2>Our Values</h2>
-    <ul>
-      <li>Integrity</li>
-      <li>Professionalism</li>
-      <li>Client-first approach</li>
-    </ul>
+        <div class="values-section">
+          <div class="content-card">
+            <h2>Our Values</h2>
+            <ul class="values-list">
+              <li>
+                <div class="value-item">
+                  <h3>Integrity</h3>
+                  <p>We maintain the highest ethical standards in all our professional dealings</p>
+                </div>
+              </li>
+              <li>
+                <div class="value-item">
+                  <h3>Professionalism</h3>
+                  <p>Excellence and attention to detail define our approach to legal practice</p>
+                </div>
+              </li>
+              <li>
+                <div class="value-item">
+                  <h3>Client-first approach</h3>
+                  <p>Your success and satisfaction are our primary objectives in every case</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+<style>
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+/* About Section */
+#about {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  min-height: 100vh;
+  padding: 6rem 1rem;
+  color: white;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.1;
+}
+
+.about-intro {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.content-card h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  line-height: 1.2;
+}
+
+.content-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.values-list li {
+  margin-bottom: 2rem;
+}
+
+.values-list li:last-child {
+  margin-bottom: 0;
+}
+
+.value-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.value-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(10px);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.value-item h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.value-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Breakpoints */
+
+/* Large tablets and small desktops (1024px and down) */
+@media screen and (max-width: 1024px) {
+  .about-header h1 {
+    font-size: 3rem;
+  }
+  
+  .about-intro {
+    font-size: 1.2rem;
+  }
+  
+  .content-card h2 {
+    font-size: 2rem;
+  }
+  
+  .content-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets (768px and down) */
+@media screen and (max-width: 768px) {
+  #about {
+    padding: 4rem 1rem;
+  }
+  
+  .about-header {
+    margin-bottom: 3rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-intro {
+    font-size: 1.1rem;
+  }
+  
+  .about-content {
+    gap: 2rem;
+  }
+  
+  .content-card {
+    padding: 2rem;
+  }
+  
+  .content-card h2 {
+    font-size: 1.8rem;
+  }
+  
+  .value-item {
+    padding: 1.25rem;
+  }
+  
+  .value-item h3 {
+    font-size: 1.25rem;
+  }
+  
+  .value-item:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Mobile phones (480px and down) */
+@media screen and (max-width: 480px) {
+  #about {
+    padding: 3rem 0.75rem;
+  }
+  
+  .about-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2rem;
+  }
+  
+  .about-intro {
+    font-size: 1rem;
+  }
+  
+  .about-content {
+    gap: 1.5rem;
+  }
+  
+  .content-card {
+    padding: 1.5rem;
+  }
+  
+  .content-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content-card p {
+    font-size: 0.95rem;
+  }
+  
+  .values-list li {
+    margin-bottom: 1.5rem;
+  }
+  
+  .value-item {
+    padding: 1rem;
+  }
+  
+  .value-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .value-item p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small phones (320px and down) */
+@media screen and (max-width: 320px) {
+  #about {
+    padding: 2.5rem 0.5rem;
+  }
+  
+  .about-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .about-intro {
+    font-size: 0.95rem;
+  }
+  
+  .content-card {
+    padding: 1.25rem;
+  }
+  
+  .content-card h2 {
+    font-size: 1.4rem;
+  }
+  
+  .content-card p {
+    font-size: 0.9rem;
+  }
+  
+  .value-item {
+    padding: 0.875rem;
+  }
+  
+  .value-item h3 {
+    font-size: 1rem;
+  }
+  
+  .value-item p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #about {
+    padding: 3rem 1rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .about-header {
+    margin-bottom: 2rem;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .about-header h1 {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+}
+</style>
 {% endblock %}
