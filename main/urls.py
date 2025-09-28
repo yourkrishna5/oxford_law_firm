@@ -13,9 +13,9 @@ urlpatterns = [
     path('team/', views.team_view, name='team'),
 
     # Articles
-    path('articles/', views.article_list, name='article_list'),
+    path('articles/', views.article_list, name='articles'),
     path('articles/<slug:slug>/', views.article_detail, name='article_detail'),
 
     # Notices
-    path('notices/', views.notice_list, name='notice_list'),
+    path('notices/', views.notice_list, name='notices'),
 ]
