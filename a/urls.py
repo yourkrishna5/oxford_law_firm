@@ -20,6 +20,6 @@ from main import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("new.urls"))
+    path("",include("main.urls"))
     
 ]
