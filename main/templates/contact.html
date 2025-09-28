@@ -6,8 +6,8 @@
   <section id="contact">
     <h1>Contact Us</h1>
 
-    <!-- Contact form: backend view 'contact_submit' should send email to oxfordlawfirm5@gmail.com -->
-    <form action="{% url 'contact_submit' %}" method="post">
+    <!-- Contact form -->
+    <form action="{% url 'contact' %}" method="post">
       {% csrf_token %}
       <div>
         <label for="id_name">Name</label>
@@ -36,7 +36,7 @@
 
     <hr>
 
-    <!-- Fallback: mailto link so a user can open their email client (optional) -->
+    <!-- Fallback: mailto link -->
     <p>If you prefer, click to open your email client:</p>
     <p><a href="mailto:oxfordlawfirm5@gmail.com?subject=Inquiry%20from%20website">Email Oxford Law Firm</a></p>
 
