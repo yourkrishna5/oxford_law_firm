@@ -4,17 +4,469 @@
 
 {% block content %}
   <article id="article-detail">
-    <h1>{{ article.title }}</h1>
-    <p><em>By {{ article.author }} — {{ article.created_at|date:"M d, Y" }}</em></p>
-
-    {% if article.cover_image %}
-      <div class="cover">
-        <img src="{{ article.cover_image.url }}" alt="{{ article.title }}">
+    <div class="article-container">
+      <div class="article-header">
+        <h1>{{ article.title }}</h1>
+        <div class="article-meta">
+          <p><em>By {{ article.author }} — {{ article.created_at|date:"M d, Y" }}</em></p>
+        </div>
       </div>
-    {% endif %}
 
-    <div class="content">
-      {{ article.content|linebreaks }}
+      {% if article.cover_image %}
+        <div class="cover-image-section">
+          <div class="cover">
+            <img src="{{ article.cover_image.url }}" alt="{{ article.title }}">
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="article-content">
+        <div class="content-wrapper">
+          <div class="content">
+            {{ article.content|linebreaks }}
+          </div>
+        </div>
+      </div>
     </div>
   </article>
+
+<style>
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Article Detail Section */
+#article-detail {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  color: white;
+}
+
+.article-container {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.article-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.article-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.2;
+  color: white;
+}
+
+.article-meta {
+  margin-top: 1rem;
+}
+
+.article-meta p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.article-meta em {
+  font-style: normal;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cover-image-section {
+  margin-bottom: 3rem;
+}
+
+.cover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.cover:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.cover img:hover {
+  transform: scale(1.05);
+}
+
+.article-content {
+  margin-bottom: 2rem;
+}
+
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.content-wrapper:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.content {
+  padding: 2.5rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: white;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.content h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.content h3 {
+  font-size: 1.5rem;
+}
+
+.content h4 {
+  font-size: 1.3rem;
+}
+
+.content ul,
+.content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+  opacity: 0.95;
+}
+
+.content blockquote {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid white;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.content a {
+  color: #fbbf24;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.content a:hover {
+  color: white;
+}
+
+.content strong {
+  font-weight: 700;
+  color: white;
+}
+
+.content em {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Breakpoints */
+
+/* Large tablets and small desktops (1024px and down) */
+@media screen and (max-width: 1024px) {
+  .article-container {
+    max-width: 800px;
+  }
+  
+  .article-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .article-meta p {
+    font-size: 1rem;
+  }
+  
+  .content {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+}
+
+/* Tablets (768px and down) */
+@media screen and (max-width: 768px) {
+  #article-detail {
+    padding: 3rem 1rem;
+  }
+  
+  .article-header {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .article-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .article-meta p {
+    font-size: 0.95rem;
+  }
+  
+  .article-meta em {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .cover-image-section {
+    margin-bottom: 2rem;
+  }
+  
+  .cover {
+    padding: 1rem;
+  }
+  
+  .content {
+    padding: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .content h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile phones (480px and down) */
+@media screen and (max-width: 480px) {
+  #article-detail {
+    padding: 2rem 0.75rem;
+  }
+  
+  .article-header {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .article-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .article-meta p {
+    font-size: 0.9rem;
+  }
+  
+  .article-meta em {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .cover-image-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .cover {
+    padding: 0.75rem;
+  }
+  
+  .content {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .content p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .content h2 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+  }
+  
+  .content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .content ul,
+  .content ol {
+    padding-left: 1.5rem;
+  }
+  
+  .content blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem;
+  }
+}
+
+/* Extra small phones (320px and down) */
+@media screen and (max-width: 320px) {
+  #article-detail {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .article-header {
+    padding: 1.25rem;
+  }
+  
+  .article-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .article-meta p {
+    font-size: 0.85rem;
+  }
+  
+  .article-meta em {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .cover {
+    padding: 0.5rem;
+  }
+  
+  .content {
+    padding: 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .content h3 {
+    font-size: 1.15rem;
+  }
+  
+  .content h4 {
+    font-size: 1.05rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #article-detail {
+    padding: 2rem 1rem;
+  }
+  
+  .article-header h1 {
+    font-size: 2rem;
+  }
+  
+  .article-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .cover-image-section {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .article-header h1 {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+}
+
+/* Print Styles */
+@media print {
+  #article-detail {
+    background: white;
+    color: black;
+    padding: 2rem;
+  }
+  
+  .article-header,
+  .cover,
+  .content-wrapper {
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+  
+  .article-header h1,
+  .content {
+    color: black;
+  }
+  
+  .article-meta em {
+    background: #f5f5f5;
+  }
+  
+  .content a {
+    color: blue;
+  }
+}
+</style>
 {% endblock %}
