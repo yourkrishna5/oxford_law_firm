@@ -6,8 +6,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
 
     # Remove contact page URL from website
-    path('contact/send/', views.contact_email, name='contact_email'),
-    path('contact/success/', views.contact_success, name='contact_success'),
+    path('contact', views.contact, name='contact_email'),
+   
 
     # Team
     path('team/', views.team_view, name='team'),
