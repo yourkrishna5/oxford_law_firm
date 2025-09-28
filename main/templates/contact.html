@@ -4,10 +4,507 @@
 
 {% block content %}
 <section id="contact">
-  <h1>Contact Us</h1>
+  <div class="contact-container">
+    <div class="contact-header">
+      <h1>Contact Us</h1>
+      <p class="contact-intro">Ready to discuss your legal needs? We're here to help you navigate your legal challenges with expertise and dedication.</p>
+    </div>
 
-  <!-- Only mailto link, no form -->
-  <p>If you want to contact us, click the link below to open your email client:</p>
-  <p><a href="mailto:oxfordlawfirm5@gmail.com?subject=Inquiry%20from%20website">Email Oxford Law Firm</a></p>
+    <div class="contact-content">
+      <div class="contact-main">
+        <div class="email-section">
+          <div class="contact-card">
+            <div class="card-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m4 4 16 16"/>
+                <path d="m21 4-6.5 6.5"/>
+                <path d="m14 10 7 7"/>
+                <path d="m8 21 7-7"/>
+                <path d="m4 4 16 16"/>
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-10 5L2 7"/>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h2>Get in Touch</h2>
+              <p>Ready to get started? Click the link below to open your email client and send us a message. We'll respond to your inquiry promptly.</p>
+              <div class="email-button-wrapper">
+                <a href="mailto:oxfordlawfirm5@gmail.com?subject=Inquiry%20from%20website" class="email-button">
+                  <span class="button-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/>
+                      <path d="m22 7-10 5L2 7"/>
+                    </svg>
+                  </span>
+                  Email Oxford Law Firm
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-sections">
+          <div class="info-card">
+            <h3>What to Include</h3>
+            <ul class="info-list">
+              <li>Brief description of your legal matter</li>
+              <li>Your preferred method of communication</li>
+              <li>Best times to reach you</li>
+              <li>Any urgent deadlines or time-sensitive issues</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Our Commitment</h3>
+            <ul class="info-list">
+              <li>Professional and confidential consultation</li>
+              <li>Prompt response to all inquiries</li>
+              <li>Clear explanation of legal options</li>
+              <li>Transparent communication throughout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  color: white;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  line-height: 1.1;
+  color: white;
+}
+
+.contact-intro {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.email-section {
+  margin-bottom: 1rem;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+  margin: 0 auto 1.5rem;
+  width: 48px;
+  height: 48px;
+  color: white;
+  opacity: 0.9;
+}
+
+.card-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.card-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.email-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 3rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.email-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.button-icon {
+  display: flex;
+  align-items: center;
+}
+
+.info-sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  position: relative;
+  padding: 0.75rem 0 0.75rem 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.95;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Breakpoints */
+
+/* Large tablets and small desktops (1024px and down) */
+@media screen and (max-width: 1024px) {
+  .contact-header h1 {
+    font-size: 3rem;
+  }
+  
+  .contact-intro {
+    font-size: 1.2rem;
+  }
+  
+  .contact-card {
+    padding: 2.5rem;
+  }
+  
+  .card-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .info-sections {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Tablets (768px and down) */
+@media screen and (max-width: 768px) {
+  #contact {
+    padding: 3rem 1rem;
+  }
+  
+  .contact-header {
+    margin-bottom: 3rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .contact-intro {
+    font-size: 1.1rem;
+  }
+  
+  .contact-main {
+    gap: 2.5rem;
+  }
+  
+  .contact-card {
+    padding: 2rem;
+  }
+  
+  .card-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .card-content p {
+    font-size: 1rem;
+  }
+  
+  .email-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+  
+  .info-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1.75rem;
+  }
+  
+  .info-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .info-list li {
+    font-size: 0.95rem;
+    padding: 0.6rem 0 0.6rem 1.75rem;
+  }
+}
+
+/* Mobile phones (480px and down) */
+@media screen and (max-width: 480px) {
+  #contact {
+    padding: 2rem 0.75rem;
+  }
+  
+  .contact-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 2rem;
+  }
+  
+  .contact-intro {
+    font-size: 1rem;
+  }
+  
+  .contact-main {
+    gap: 2rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .card-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .email-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+  
+  .button-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .info-card {
+    padding: 1.5rem;
+  }
+  
+  .info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .info-list li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+  }
+  
+  .info-list li::before {
+    width: 1.25rem;
+    height: 1.25rem;
+    top: 0.5rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra small phones (320px and down) */
+@media screen and (max-width: 320px) {
+  #contact {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .contact-intro {
+    font-size: 0.95rem;
+  }
+  
+  .contact-card {
+    padding: 1.25rem;
+  }
+  
+  .card-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+  }
+  
+  .email-button {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+  
+  .info-card {
+    padding: 1.25rem;
+  }
+  
+  .info-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .info-list li {
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #contact {
+    padding: 2rem 1rem;
+  }
+  
+  .contact-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .contact-header {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-main {
+    gap: 2rem;
+  }
+}
+
+/* High DPI displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .contact-header h1 {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+}
+
+/* Large screens - show info sections side by side */
+@media screen and (min-width: 900px) {
+  .info-sections {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+</style>
 {% endblock %}
