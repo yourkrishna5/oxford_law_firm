@@ -1,5 +1,5 @@
 Django==5.2
-psycopg2-binary==2.9.9   # Postgres driver
+psycopg2==2.9.9   # Postgres driver
 dj-database-url==2.2.0   # Parse DB URL (NeonDB / CockroachDB / etc.)
 Pillow==10.4.0           # For image fields
 gunicorn==23.0.0         # For deployment (if you host on render/railway/heroku)
