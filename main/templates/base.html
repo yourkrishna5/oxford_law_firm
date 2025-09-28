@@ -23,6 +23,7 @@
           <li><a href="{% url 'team' %}">Team</a></li>
           <li><a href="{% url 'article_list' %}">Articles</a></li>
           <li><a href="{% url 'notice_list' %}">Notices</a></li>
+          <!-- Contact page now only has mailto link, URL is safe -->
           <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </nav>
@@ -32,7 +33,6 @@
   <!-- MAIN CONTENT -->
   <main>
     {% block content %}
-    <!-- page content goes here -->
     {% endblock %}
   </main>
 
@@ -44,7 +44,7 @@
       </div>
       <div id="footer-text">
         <p>© Oxford Law Firm. All rights reserved.</p>
-        <p>Contact: oxfordlawfirm5@gmail.com</p>
+        <p>Contact: <a href="mailto:oxfordlawfirm5@gmail.com">oxfordlawfirm5@gmail.com</a></p>
       </div>
     </div>
   </footer>
