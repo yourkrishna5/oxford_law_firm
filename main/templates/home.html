@@ -4,26 +4,24 @@
 {% block title %}Home - Oxford Law Firm{% endblock %}
 
 {% block content %}
-  <!-- Hero section with a big background photo -->
-  <section id="hero" style="background-image: url('{% static 'images/hero.jpg' %}'); background-size: cover; background-position: center; min-height: 60vh;">
-    <div class="hero-inner">
-      <h1>Oxford Law Firm</h1>
-      <p>Professional legal services for individuals and businesses.</p>
-      <p><a href="{% url 'contact' %}">Get in touch</a></p>
-    </div>
+  <!-- Hero section -->
+  <section id="hero" style="background-image: url('{% static "images/hero.jpg" %}');">
+    <h1>Oxford Law Firm</h1>
+    <p>Professional legal services for individuals and businesses.</p>
+    <p><a href="{% url 'contact' %}">Get in touch</a></p>
   </section>
 
-  <!-- Short intro / latest notice or featured article -->
+  <!-- Welcome section -->
   <section id="intro">
     <h2>Welcome</h2>
     <p>Welcome to Oxford Law Firm. We offer expert legal advice across multiple practice areas.</p>
   </section>
 
-  <!-- Optional featured articles list -->
+  <!-- Latest Articles -->
   <section id="featured">
     <h2>Latest Articles</h2>
     <ul>
-      {% for article in articles|default:list %}
+      {% for article in articles %}
         <li><a href="{% url 'article_detail' slug=article.slug %}">{{ article.title }}</a> — {{ article.created_at|date:"M d, Y" }}</li>
       {% empty %}
         <li>No articles yet.</li>
