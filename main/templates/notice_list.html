@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Notices - Oxford Law Firm{% endblock %}
+
+{% block content %}
+  <section id="notices">
+    <h1>Notices</h1>
+    <ul>
+      {% for notice in notices %}
+        <li>
+          <h3>{{ notice.title }}</h3>
+          <small>{{ notice.published_at|date:"M d, Y" }}</small>
+          <p>{{ notice.description }}</p>
+        </li>
+      {% empty %}
+        <li>No notices published.</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

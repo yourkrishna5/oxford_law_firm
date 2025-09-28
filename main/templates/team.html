@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Team - Oxford Law Firm{% endblock %}
+
+{% block content %}
+  <section id="team">
+    <h1>Our Team</h1>
+    <ul>
+      {% for member in members %}
+        <li>
+          <div class="member-photo">
+            {% if member.photo %}
+              <img src="{{ member.photo.url }}" alt="{{ member.name }}">
+            {% else %}
+              <img src="{% static 'images/avatar-placeholder.png' %}" alt="avatar">
+            {% endif %}
+          </div>
+          <div class="member-info">
+            <h3>{{ member.name }}</h3>
+            <p><strong>{{ member.role }}</strong></p>
+            <p>{{ member.bio }}</p>
+          </div>
+        </li>
+      {% empty %}
+        <li>No team members yet.</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

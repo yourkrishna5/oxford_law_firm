@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Articles - Oxford Law Firm{% endblock %}
+
+{% block content %}
+  <section id="articles">
+    <h1>Articles & Blogs</h1>
+    <ul>
+      {% for article in articles %}
+        <li>
+          <a href="{% url 'article_detail' slug=article.slug %}">{{ article.title }}</a>
+          <div class="meta">By {{ article.author }} — {{ article.created_at|date:"M d, Y" }}</div>
+          <p>{{ article.content|truncatechars:150 }}</p>
+        </li>
+      {% empty %}
+        <li>No articles available.</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

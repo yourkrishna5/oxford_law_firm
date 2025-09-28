@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Oxford Law Firm{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div id="header-inner">
+      <!-- Logo placeholder -->
+      <a href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Oxford Law Firm logo" id="site-logo" />
+      </a>
+
+      <!-- Simple nav -->
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'team' %}">Team</a></li>
+          <li><a href="{% url 'article_list' %}">Articles</a></li>
+          <li><a href="{% url 'notice_list' %}">Notices</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    {% block content %}
+    <!-- page content goes here -->
+    {% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div id="footer-inner">
+      <div id="footer-logo">
+        <img src="{% static 'images/logo.png' %}" alt="Oxford Law Firm logo (footer)" />
+      </div>
+      <div id="footer-text">
+        <p>© Oxford Law Firm. All rights reserved.</p>
+        <p>Contact: oxfordlawfirm5@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
