@@ -2,10 +2,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Static pages
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
+
+    # Remove contact page URL from website
+    path('contact/send/', views.contact_email, name='contact_email'),
     path('contact/success/', views.contact_success, name='contact_success'),
 
     # Team
