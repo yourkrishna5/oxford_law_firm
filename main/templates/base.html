@@ -2,51 +2,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Oxford Law Firm{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div id="header-inner">
-      <!-- Logo placeholder -->
-      <a href="{% url 'home' %}">
-        <img src="{% static 'images/logo.png' %}" alt="Oxford Law Firm logo" id="site-logo" />
-      </a>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
-      <!-- Simple nav -->
-  <nav>
-  <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
-    <li><a href="{% url 'team' %}">Team</a></li>
-    <li><a href="{% url 'article_list' %}">Articles</a></li>
-    <li><a href="{% url 'notice_list' %}">Notices</a></li>
-    <!-- Contact link now points directly to email -->
-    <li><a href="mailto:oxfordlawfirm5@gmail.com">Contact</a></li>
-  </ul>
-</nav>
+  <!-- Navbar -->
+  <header class="bg-white shadow-md fixed w-full top-0 z-50">
+    <nav class="container mx-auto flex items-center justify-between py-4 px-6">
+      <a href="{% url 'home' %}" class="text-2xl font-bold text-blue-800">Oxford Law Firm</a>
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="{% url 'about' %}" class="hover:text-blue-700">About</a></li>
+        <li><a href="{% url 'articles' %}" class="hover:text-blue-700">Articles</a></li>
+        <li><a href="{% url 'notices' %}" class="hover:text-blue-700">Notices</a></li>
+        <li><a href="{% url 'team' %}" class="hover:text-blue-700">Team</a></li>
+        <li><a href="{% url 'contact' %}" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">Contact</a></li>
+      </ul>
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-blue-800 focus:outline-none">
+        ☰
+      </button>
+    </nav>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <ul class="flex flex-col space-y-4 p-6">
+        <li><a href="{% url 'about' %}" class="hover:text-blue-700">About</a></li>
+        <li><a href="{% url 'articles' %}" class="hover:text-blue-700">Articles</a></li>
+        <li><a href="{% url 'notices' %}" class="hover:text-blue-700">Notices</a></li>
+        <li><a href="{% url 'team' %}" class="hover:text-blue-700">Team</a></li>
+        <li><a href="{% url 'contact' %}" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">Contact</a></li>
+      </ul>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    {% block content %}
-    {% endblock %}
+  <!-- Page Content -->
+  <main class="flex-grow pt-24">
+    {% block content %}{% endblock %}
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div id="footer-inner">
-      <div id="footer-logo">
-        <img src="{% static 'images/logo.png' %}" alt="Oxford Law Firm logo (footer)" />
-      </div>
-      <div id="footer-text">
-        <p>© Oxford Law Firm. All rights reserved.</p>
-        <p>Contact: <a href="mailto:oxfordlawfirm5@gmail.com">oxfordlawfirm5@gmail.com</a></p>
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-gray-200 py-6 mt-12">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-sm">&copy; {{ now|date:"Y" }} Oxford Law Firm. All rights reserved.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="mailto:oxfordlawfirm5@gmail.com" class="hover:text-white">Email</a>
+        <a href="#" class="hover:text-white">Privacy Policy</a>
       </div>
     </div>
   </footer>
+
+  <!-- Script for mobile menu -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
