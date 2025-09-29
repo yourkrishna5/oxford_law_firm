@@ -192,7 +192,12 @@
   <!-- Navbar -->
   <header class="navbar-glass fixed w-full top-0 z-50">
     <nav class="container mx-auto flex items-center justify-between py-4 px-6">
-      <a href="{% url 'home' %}" class="logo-text text-2xl animate-fade-in-up">Oxford Law Firm</a>
+    <a href="{% url 'home' %}" class="flex items-center space-x-3">
+  <img src="logo.jpg"
+       alt="Oxford Law Firm Logo"
+       class="w-12 h-12 rounded-full border-2 border-yellow-500 shadow-lg">
+  <span class="logo-text text-2xl animate-fade-in-up">Oxford Law Firm</span>
+</a>
       
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex space-x-8 font-medium">
