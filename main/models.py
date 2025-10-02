@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Team members
 class TeamMember(models.Model):
@@ -9,6 +10,10 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
+
+    # Optional: if you have a detail page for team members
+    def get_absolute_url(self):
+        return reverse("team")  # Replace with detail URL if you have one
 
 
 # Articles / Blogs
@@ -24,6 +29,10 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+    # ✅ Fix for sitemap
+    def get_absolute_url(self):
+        return reverse("article_detail", args=[self.slug])
+
 
 # Notices
 class Notice(models.Model):
@@ -34,3 +43,7 @@ class Notice(models.Model):
 
     def __str__(self):
         return self.title
+
+    # Optional: if you have a detail page
+    def get_absolute_url(self):
+        return reverse("notices")  # Or reverse detail URL if exists
