@@ -490,37 +490,40 @@
         <span class="logo-text text-2xl animate-fade-in-up">Oxford Law Firm</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center space-x-8">
-        <li><a href="{% url 'about' %}" class="nav-link">About</a></li>
-        <li><a href="{% url 'articles' %}" class="nav-link">Articles</a></li>
-        <li><a href="{% url 'notices' %}" class="nav-link">Notices</a></li>
-        <li><a href="{% url 'team' %}" class="nav-link">Team</a></li>
-        <li><a href="{% url 'contact' %}" class="contact-btn">Contact</a></li>
-      </ul>
+     <!-- Desktop Navigation -->  
+  <ul class="hidden md:flex items-center space-x-8">  
+    <li><a href="{% url 'about' %}" class="nav-link">About</a></li>  
+    <li><a href="{% url 'articles' %}" class="nav-link">Articles</a></li>  
+    <li><a href="{% url 'notices' %}" class="nav-link">Notices</a></li>  
+    <li><a href="{% url 'team' %}" class="nav-link">Team</a></li>  
+    <li><a href="{% url 'contact' %}" class="contact-btn">Contact</a></li>  
+    <li><a href="https://oxfordlawfirm.onrender.com/admin" class="nav-link">Login</a></li>  
+  </ul>  
 
-      <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="menu-btn md:hidden focus:outline-none">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-    </nav>
+  <!-- Mobile Menu Button -->  
+  <button id="menu-btn" class="menu-btn md:hidden focus:outline-none">  
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">  
+      <line x1="3" y1="6" x2="21" y2="6"></line>  
+      <line x1="3" y1="12" x2="21" y2="12"></line>  
+      <line x1="3" y1="18" x2="21" y2="18"></line>  
+    </svg>  
+  </button>  
+</nav>  
 
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="mobile-menu md:hidden">
-      <ul class="flex flex-col px-6 pb-6">
-        <li><a href="{% url 'about' %}" class="mobile-nav-link block">About</a></li>
-        <li><a href="{% url 'articles' %}" class="mobile-nav-link block">Articles</a></li>
-        <li><a href="{% url 'notices' %}" class="mobile-nav-link block">Notices</a></li>
-        <li><a href="{% url 'team' %}" class="mobile-nav-link block">Team</a></li>
-        <li class="pt-4 px-4">
-          <a href="{% url 'contact' %}" class="contact-btn block text-center">Contact</a>
-        </li>
-      </ul>
-    </div>
+<!-- Mobile Dropdown -->  
+<div id="mobile-menu" class="mobile-menu md:hidden">  
+  <ul class="flex flex-col px-6 pb-6">  
+    <li><a href="{% url 'about' %}" class="mobile-nav-link block">About</a></li>  
+    <li><a href="{% url 'articles' %}" class="mobile-nav-link block">Articles</a></li>  
+    <li><a href="{% url 'notices' %}" class="mobile-nav-link block">Notices</a></li>  
+    <li><a href="{% url 'team' %}" class="mobile-nav-link block">Team</a></li>  
+    <li><a href="https://oxfordlawfirm.onrender.com/admin" class="mobile-nav-link block">Login</a></li>  
+    <li class="pt-4 px-4">  
+      <a href="{% url 'contact' %}" class="contact-btn block text-center">Contact</a>  
+    </li>  
+  </ul>  
+</div>
+
   </header>
 
   <!-- Page Content -->
