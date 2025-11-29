@@ -8,224 +8,152 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" href="https://sl.bing.net/c1aY4vE7J12" type="image/png">
   <style>
-    /* Professional Law Firm Color Palette */
+    /* Professional Black & White Color Palette */
     :root {
-      --primary-navy: #1e3a5f;
-      --secondary-navy: #2c3e50;
-      --gold-accent: #c9a961;
-      --gold-dark: #b8860b;
-      --charcoal: #2d3436;
-      --cream: #fdfbf7;
-      --soft-white: #f8f9fa;
+      --primary-black: #000000;
+      --secondary-black: #1a1a1a;
+      --charcoal: #2d2d2d;
+      --light-gray: #f5f5f5;
+      --medium-gray: #e0e0e0;
+      --white: #ffffff;
+      --accent-gray: #4a4a4a;
     }
 
-    /* Enhanced Body Background */
+    /* Clean Body Background */
     body {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
-      background-attachment: fixed;
+      background-color: var(--white);
       min-height: 100vh;
-      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(30, 58, 95, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
+    /* Professional Navbar */
+    .navbar {
+      background-color: var(--white);
+      border-bottom: 1px solid var(--medium-gray);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
     }
 
-    /* Enhanced Navbar */
-    .navbar-glass {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(201, 169, 97, 0.15);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .navbar.scrolled {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .navbar-glass.scrolled {
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Logo Enhancements */
+    /* Logo Styling */
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      transition: transform 0.3s ease;
+      gap: 1rem;
+      transition: opacity 0.3s ease;
     }
 
     .logo-container:hover {
-      transform: translateY(-2px);
+      opacity: 0.85;
     }
 
     .logo-img {
-      border: 2px solid var(--gold-accent);
-      box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+      border: 2px solid var(--primary-black);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
 
     .logo-img:hover {
-      box-shadow: 0 6px 20px rgba(201, 169, 97, 0.5);
-      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .logo-text {
-      background: linear-gradient(135deg, #c9a961 0%, #f4e5c3 50%, #b8860b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 800;
+      color: var(--primary-black);
+      font-weight: 700;
+      font-size: 1.5rem;
       letter-spacing: -0.5px;
-      position: relative;
-      animation: shimmer 3s ease-in-out infinite;
     }
 
-    @keyframes shimmer {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    /* Enhanced Navigation Links */
+    /* Navigation Links */
     .nav-link {
       position: relative;
-      padding: 0.5rem 0;
-      color: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 1rem;
+      color: var(--charcoal);
       font-weight: 500;
       font-size: 0.95rem;
-      letter-spacing: 0.3px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s ease;
     }
 
-    .nav-link::before {
+    .nav-link::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
+      background-color: var(--primary-black);
       transform: translateX(-50%);
-      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 6px;
-      background: rgba(201, 169, 97, 0.1);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
+      transition: width 0.3s ease;
     }
 
     .nav-link:hover {
-      color: var(--gold-accent);
-      transform: translateY(-1px);
-    }
-
-    .nav-link:hover::before {
-      width: 100%;
+      color: var(--primary-black);
     }
 
     .nav-link:hover::after {
-      opacity: 1;
+      width: 80%;
     }
 
-    /* Premium Contact Button */
+    /* Contact Button */
     .contact-btn {
-      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
-      color: var(--primary-navy);
-      padding: 0.7rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 700;
+      background-color: var(--primary-black);
+      color: var(--white);
+      padding: 0.65rem 1.75rem;
+      border-radius: 4px;
+      font-weight: 600;
       font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid transparent;
-      box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s ease, height 0.6s ease;
-    }
-
-    .contact-btn:hover::before {
-      width: 300px;
-      height: 300px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary-black);
     }
 
     .contact-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(201, 169, 97, 0.5);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .contact-btn:active {
-      transform: translateY(-1px);
+      background-color: var(--white);
+      color: var(--primary-black);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     /* Mobile Menu Button */
     .menu-btn {
-      color: var(--gold-accent);
-      padding: 0.6rem;
-      border-radius: 8px;
-      background: rgba(201, 169, 97, 0.1);
-      border: 1px solid rgba(201, 169, 97, 0.3);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--primary-black);
+      padding: 0.5rem;
+      border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--medium-gray);
+      transition: all 0.3s ease;
     }
 
     .menu-btn:hover {
-      background: rgba(201, 169, 97, 0.2);
-      border-color: rgba(201, 169, 97, 0.5);
-      transform: scale(1.05);
+      background-color: var(--light-gray);
+      border-color: var(--charcoal);
     }
 
-    .menu-btn svg {
-      transition: transform 0.3s ease;
-    }
-
-    /* Enhanced Mobile Menu */
+    /* Smooth Mobile Menu Dropdown */
     .mobile-menu {
-      background: rgba(15, 23, 42, 0.98);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+      background-color: var(--white);
+      border-top: 1px solid var(--medium-gray);
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .mobile-menu.active {
-      max-height: 500px;
+      max-height: 600px;
+      opacity: 1;
+      border-bottom: 1px solid var(--medium-gray);
     }
 
     .mobile-nav-link {
-      color: rgba(255, 255, 255, 0.9);
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--charcoal);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--light-gray);
       transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
+      background-color: var(--white);
     }
 
     .mobile-nav-link::before {
@@ -234,123 +162,137 @@
       left: 0;
       top: 0;
       height: 100%;
-      width: 3px;
-      background: var(--gold-accent);
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
+      width: 0;
+      background-color: var(--primary-black);
+      transition: width 0.3s ease;
     }
 
     .mobile-nav-link:hover {
-      color: var(--gold-accent);
-      padding-left: 1.5rem;
-      background: rgba(201, 169, 97, 0.05);
+      color: var(--primary-black);
+      background-color: var(--light-gray);
     }
 
     .mobile-nav-link:hover::before {
-      transform: translateX(0);
+      width: 4px;
+    }
+
+    .mobile-contact-btn {
+      background-color: var(--primary-black);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin: 1rem 1.5rem;
+      display: block;
+    }
+
+    .mobile-contact-btn:hover {
+      background-color: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     /* Main Content */
     .main-content {
-      position: relative;
-      z-index: 1;
+      background-color: var(--white);
     }
 
-    /* Enhanced Footer */
-    .footer-enhanced {
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
-      backdrop-filter: blur(20px);
-      border-top: 2px solid rgba(201, 169, 97, 0.2);
-      color: rgba(255, 255, 255, 0.9);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .footer-enhanced::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, 
-        transparent, 
-        var(--gold-accent), 
-        transparent);
-      animation: footerShimmer 3s linear infinite;
-    }
-
-    @keyframes footerShimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+    /* Professional Footer */
+    .footer {
+      background-color: var(--primary-black);
+      color: var(--white);
+      border-top: 1px solid var(--charcoal);
     }
 
     .footer-link {
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.8);
       transition: all 0.3s ease;
       position: relative;
       padding: 0.25rem 0;
     }
 
-    .footer-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--gold-accent);
-      transition: width 0.3s ease;
-    }
-
     .footer-link:hover {
-      color: var(--gold-accent);
-      transform: translateX(3px);
+      color: var(--white);
+      padding-left: 0.5rem;
     }
 
-    .footer-link:hover::after {
-      width: 100%;
-    }
-
-    /* Enhanced Chat Button */
+    /* GitHub Copilot Style Chat Button */
     #chat-button {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
-      color: var(--primary-navy);
-      padding: 14px 24px;
-      border-radius: 50px;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #000000 0%, #2d2d2d 100%);
+      color: var(--white);
+      border-radius: 50%;
       cursor: pointer;
-      font-weight: 700;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
       z-index: 1000;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      animation: pulse 2s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.15);
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 4px 20px rgba(201, 169, 97, 0.4);
-      }
-      50% {
-        box-shadow: 0 4px 30px rgba(201, 169, 97, 0.6);
-      }
+    #chat-button svg {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s ease;
     }
 
     #chat-button:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 30px rgba(201, 169, 97, 0.6);
-      animation: none;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(255, 255, 255, 0.2);
+      background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+    }
+
+    #chat-button:hover svg {
+      transform: scale(1.1);
     }
 
     #chat-button:active {
-      transform: translateY(-2px) scale(1.02);
+      transform: translateY(0) scale(1);
     }
 
-    /* Enhanced Chat Window */
+    /* Tooltip for Chat Button */
+    #chat-button::before {
+      content: 'Ask AI Assistant';
+      position: absolute;
+      right: 70px;
+      background-color: var(--primary-black);
+      color: var(--white);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #chat-button::after {
+      content: '';
+      position: absolute;
+      right: 62px;
+      border: 6px solid transparent;
+      border-left-color: var(--primary-black);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    #chat-button:hover::before,
+    #chat-button:hover::after {
+      opacity: 1;
+    }
+
+    /* Chat Window */
     #chat-window {
       display: none;
       position: fixed;
@@ -358,13 +300,13 @@
       right: 30px;
       width: 380px;
       height: 550px;
-      border-radius: 16px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       background: white;
       z-index: 1000;
-      border: 2px solid rgba(201, 169, 97, 0.3);
-      animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--medium-gray);
+      animation: slideUp 0.3s ease;
     }
 
     @keyframes slideUp {
@@ -384,22 +326,6 @@
       border: none;
     }
 
-    /* Smooth Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
     /* Smooth Scrolling */
     html {
       scroll-behavior: smooth;
@@ -411,26 +337,27 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.5);
+      background: var(--light-gray);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--gold-accent), var(--gold-dark));
+      background: var(--charcoal);
       border-radius: 5px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: var(--gold-accent);
+      background: var(--primary-black);
     }
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
-      .navbar-glass {
-        background: rgba(15, 23, 42, 0.98);
-      }
-
       .logo-text {
         font-size: 1.25rem;
+      }
+
+      .logo-img {
+        width: 2.5rem;
+        height: 2.5rem;
       }
 
       #chat-window {
@@ -438,21 +365,23 @@
         height: calc(100% - 20px);
         bottom: 10px;
         right: 10px;
-        border-radius: 12px;
       }
 
       #chat-button {
+        width: 52px;
+        height: 52px;
         bottom: 20px;
         right: 20px;
-        padding: 12px 20px;
       }
-    }
 
-    /* High Contrast Mode */
-    @media (prefers-contrast: high) {
-      .nav-link,
-      .footer-link {
-        color: #ffffff;
+      #chat-button svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      #chat-button::before,
+      #chat-button::after {
+        display: none;
       }
     }
 
@@ -466,73 +395,62 @@
         transition-duration: 0.01ms !important;
       }
     }
-
-    /* Loading Animation for Page Transitions */
-    .page-transition {
-      animation: fadeIn 0.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-  <!-- Enhanced Navbar -->
-  <header class="navbar-glass fixed w-full top-0 z-50">
+  <!-- Professional Navbar -->
+  <header class="navbar fixed w-full top-0 z-50">
     <nav class="container mx-auto flex items-center justify-between py-4 px-6">
       <a href="{% url 'home' %}" class="logo-container">
         <img src="https://i.imgur.com/vp6FVoS.jpeg"
              alt="Oxford Law Firm Logo"
-             class="logo-img w-12 h-12 rounded-full">
-        <span class="logo-text text-2xl animate-fade-in-up">Oxford Law Firm</span>
+             class="logo-img w-14 h-14 rounded-full object-cover">
+        <span class="logo-text">Oxford Law Firm</span>
       </a>
 
-     <!-- Desktop Navigation -->  
-  <ul class="hidden md:flex items-center space-x-8">  
-    <li><a href="{% url 'about' %}" class="nav-link">About</a></li>  
-    <li><a href="{% url 'articles' %}" class="nav-link">Articles</a></li>  
-    <li><a href="{% url 'notices' %}" class="nav-link">Notices</a></li>  
-    <li><a href="{% url 'team' %}" class="nav-link">Team</a></li>  
-    <li><a href="{% url 'contact' %}" class="contact-btn">Contact</a></li>  
-    <li><a href="https://oxfordlawfirm.onrender.com/admin" class="nav-link">Login</a></li>  
-  </ul>  
+      <!-- Desktop Navigation -->  
+      <ul class="hidden md:flex items-center space-x-6">  
+        <li><a href="{% url 'about' %}" class="nav-link">About</a></li>  
+        <li><a href="{% url 'articles' %}" class="nav-link">Articles</a></li>  
+        <li><a href="{% url 'notices' %}" class="nav-link">Notices</a></li>  
+        <li><a href="{% url 'team' %}" class="nav-link">Team</a></li>  
+        <li><a href="https://oxfordlawfirm.onrender.com/admin" class="nav-link">Login</a></li>  
+        <li><a href="{% url 'contact' %}" class="contact-btn">Contact</a></li>  
+      </ul>  
 
-  <!-- Mobile Menu Button -->  
-  <button id="menu-btn" class="menu-btn md:hidden focus:outline-none">  
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">  
-      <line x1="3" y1="6" x2="21" y2="6"></line>  
-      <line x1="3" y1="12" x2="21" y2="12"></line>  
-      <line x1="3" y1="18" x2="21" y2="18"></line>  
-    </svg>  
-  </button>  
-</nav>  
+      <!-- Mobile Menu Button -->  
+      <button id="menu-btn" class="menu-btn md:hidden focus:outline-none">  
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">  
+          <line x1="3" y1="6" x2="21" y2="6"></line>  
+          <line x1="3" y1="12" x2="21" y2="12"></line>  
+          <line x1="3" y1="18" x2="21" y2="18"></line>  
+        </svg>  
+      </button>  
+    </nav>  
 
-<!-- Mobile Dropdown -->  
-<div id="mobile-menu" class="mobile-menu md:hidden">  
-  <ul class="flex flex-col px-6 pb-6">  
-    <li><a href="{% url 'about' %}" class="mobile-nav-link block">About</a></li>  
-    <li><a href="{% url 'articles' %}" class="mobile-nav-link block">Articles</a></li>  
-    <li><a href="{% url 'notices' %}" class="mobile-nav-link block">Notices</a></li>  
-    <li><a href="{% url 'team' %}" class="mobile-nav-link block">Team</a></li>  
-    <li><a href="https://oxfordlawfirm.onrender.com/admin" class="mobile-nav-link block">Login</a></li>  
-    <li class="pt-4 px-4">  
-      <a href="{% url 'contact' %}" class="contact-btn block text-center">Contact</a>  
-    </li>  
-  </ul>  
-</div>
-
+    <!-- Mobile Dropdown Menu -->  
+    <div id="mobile-menu" class="mobile-menu md:hidden">  
+      <ul class="flex flex-col">  
+        <li><a href="{% url 'about' %}" class="mobile-nav-link block">About</a></li>  
+        <li><a href="{% url 'articles' %}" class="mobile-nav-link block">Articles</a></li>  
+        <li><a href="{% url 'notices' %}" class="mobile-nav-link block">Notices</a></li>  
+        <li><a href="{% url 'team' %}" class="mobile-nav-link block">Team</a></li>  
+        <li><a href="https://oxfordlawfirm.onrender.com/admin" class="mobile-nav-link block">Login</a></li>  
+        <li>
+          <a href="{% url 'contact' %}" class="mobile-contact-btn">Contact</a>
+        </li>  
+      </ul>  
+    </div>
   </header>
 
   <!-- Page Content -->
-  <main class="main-content flex-grow pt-20 page-transition">
+  <main class="main-content flex-grow pt-24">
     {% block content %}{% endblock %}
   </main>
 
-  <!-- Enhanced Footer -->
-  <footer class="footer-enhanced py-12 mt-16">
+  <!-- Professional Footer -->
+  <footer class="footer py-12 mt-16">
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 mb-8">
         <!-- Copyright -->
@@ -569,75 +487,71 @@
     </div>
   </footer>
 
-  <!-- Enhanced JavaScript -->
+  <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
-      const menuIcon = menuBtn.querySelector('svg');
-      const navbar = document.querySelector('.navbar-glass');
+      const navbar = document.querySelector('.navbar');
 
       // Mobile Menu Toggle
       menuBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         mobileMenu.classList.toggle('active');
-        
-        if (mobileMenu.classList.contains('active')) {
-          menuIcon.style.transform = 'rotate(90deg)';
-        } else {
-          menuIcon.style.transform = 'rotate(0deg)';
-        }
       });
 
       // Close mobile menu when clicking outside
       document.addEventListener('click', function(event) {
         if (!menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
           mobileMenu.classList.remove('active');
-          menuIcon.style.transform = 'rotate(0deg)';
         }
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+        });
       });
 
       // Close mobile menu on window resize
       window.addEventListener('resize', function() {
         if (window.innerWidth >= 768) {
           mobileMenu.classList.remove('active');
-          menuIcon.style.transform = 'rotate(0deg)';
         }
       });
 
       // Navbar scroll effect
-      let lastScroll = 0;
       window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
+        if (window.pageYOffset > 50) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
         }
-        
-        lastScroll = currentScroll;
       });
 
       // Chat functionality
       const chatBtn = document.getElementById("chat-button");
       const chatWindow = document.getElementById("chat-window");
 
-      chatBtn.addEventListener("click", function(e) {
-        e.stopPropagation();
-        if (chatWindow.style.display === "block") {
-          chatWindow.style.display = "none";
-        } else {
-          chatWindow.style.display = "block";
-        }
-      });
+      if (chatBtn && chatWindow) {
+        chatBtn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          if (chatWindow.style.display === "block") {
+            chatWindow.style.display = "none";
+          } else {
+            chatWindow.style.display = "block";
+          }
+        });
 
-      // Close chat when clicking outside
-      document.addEventListener('click', function(event) {
-        if (!chatBtn.contains(event.target) && !chatWindow.contains(event.target)) {
-          chatWindow.style.display = "none";
-        }
-      });
+        // Close chat when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!chatBtn.contains(event.target) && !chatWindow.contains(event.target)) {
+            chatWindow.style.display = "none";
+          }
+        });
+      }
 
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -655,8 +569,13 @@
     });
   </script>
 
-  <!-- Floating Chat Button -->
-  <div id="chat-button">Ask AI</div>
+  <!-- GitHub Copilot Style Chat Button -->
+  <div id="chat-button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      <path d="M8 10h.01M12 10h.01M16 10h.01"></path>
+    </svg>
+  </div>
 
   <!-- Chat Window -->
   <div id="chat-window">
